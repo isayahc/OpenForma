@@ -398,6 +398,9 @@ def _render_main_cpp(
         f"// Target: {context.target_line}",
         f"// {context.source_line}",
         "",
+        # A .cpp entry file must include Arduino.h explicitly: pinMode, OUTPUT,
+        # and friends are not declared by the bus headers alone.
+        "#include <Arduino.h>",
     ]
     bus_types = {comment.split(":")[0] for _, comment in bus_inits}
     if "I2C bus" in bus_types:

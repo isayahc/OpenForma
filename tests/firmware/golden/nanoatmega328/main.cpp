@@ -2,6 +2,7 @@
 // Target: Arduino Nano (nanoatmega328, arduino)
 // Source project: plant-watering-timer · hardware-ir 0.2
 
+#include <Arduino.h>
 #include <Wire.h>
 #include "pins.h"
 

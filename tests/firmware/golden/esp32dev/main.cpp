@@ -2,6 +2,7 @@
 // Target: ESP32 NodeMCU (esp32dev, arduino)
 // Source project: greenhouse-monitor · hardware-ir 0.2
 
+#include <Arduino.h>
 #include <Wire.h>
 #include "pins.h"
 
