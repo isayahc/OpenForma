@@ -13,6 +13,7 @@ from forma_core.firmware.targets import (
     get_board_mapping,
     get_mapping_for_target,
 )
+from forma_core.firmware.validation import firmware_target_rules
 
 __all__ = [
     "BOARD_MAPPINGS",
@@ -23,6 +24,7 @@ __all__ = [
     "FirmwareTarget",
     "UnknownBoardError",
     "esp32_example_ir",
+    "firmware_target_rules",
     "generate_firmware",
     "get_board_mapping",
     "get_mapping_for_target",
