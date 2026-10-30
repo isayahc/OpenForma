@@ -57,9 +57,10 @@ def generate_firmware(
 ) -> FirmwareScaffold:
     """Deterministically generate a PlatformIO scaffold from the hardware IR.
 
-    target=None infers the board from the single controller component (the
-    same category set derive_pin_mappings uses). Raises UnknownBoardError if
-    the part_number has no BoardMapping entry.
+    An explicit target wins; otherwise the IR's optional ``firmware`` field pins
+    the board; otherwise the board is inferred from the single controller
+    component (the same category set derive_pin_mappings uses). Raises
+    UnknownBoardError if the part_number has no BoardMapping entry.
     """
 
     warnings: list[str] = []
@@ -69,6 +70,7 @@ def generate_firmware(
         if component.category.strip().lower() in CONTROLLER_CATEGORIES
     ]
 
+    target = target or ir.firmware
     if target is None:
         if not controllers:
             warnings.append("no MCU in BOM — generated empty scaffold")
